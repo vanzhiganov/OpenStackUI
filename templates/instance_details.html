@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="{{url_for('index')}}">Instances</a></li>
+    <li><a href="">Create</a></li>
+</ul>
+<ul>
+    {% for x in ['HUMAN_ID', 'NAME_ATTR', 'OS-DCF:diskConfig', 'OS-EXT-AZ:availability_zone', 'OS-EXT-STS:power_state', 'OS-EXT-STS:task_state', 'OS-EXT-STS:vm_state', 'OS-SRV-USG:launched_at', 'OS-SRV-USG:terminated_at', '__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattr__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_add_details', '_append_request_id', '_info', '_loaded', 'accessIPv4', 'accessIPv6', 'add_fixed_ip', 'add_floating_ip', 'add_security_group', 'add_tag', 'addresses', 'api_version', 'append_request_ids', 'backup', 'change_password', 'clear_password', 'config_drive', 'confirm_resize', 'create_image', 'created', 'delete', 'delete_all_tags', 'delete_tag', 'diagnostics', 'evacuate', 'flavor', 'force_delete', 'get', 'get_console_output', 'get_mks_console', 'get_password', 'get_rdp_console', 'get_serial_console', 'get_spice_console', 'get_vnc_console', 'hostId', 'human_id', 'id', 'image', 'interface_attach', 'interface_detach', 'interface_list', 'is_loaded', 'key_name', 'links', 'list_security_group', 'live_migrate', 'lock', 'manager', 'metadata', 'migrate', 'name', 'networks', 'os-extended-volumes:volumes_attached', 'pause', 'progress', 'reboot', 'rebuild', 'remove_fixed_ip', 'remove_floating_ip', 'remove_security_group', 'request_ids', 'request_ids_setup', 'rescue', 'reset_network', 'reset_state', 'resize', 'restore', 'resume', 'revert_resize', 'security_groups', 'set_loaded', 'set_tags', 'shelve', 'shelve_offload', 'start', 'status', 'stop', 'suspend', 'tag_list', 'tenant_id', 'to_dict', 'trigger_crash_dump', 'unlock', 'unpause', 'unrescue', 'unshelve', 'update', 'updated', 'user_id', 'x_openstack_request_ids'] %}
+        <li><b>{{x}}</b>: {{ instance[x] }}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h3>flovour</h3>
+{% for x in instance['flavor'] %}
+{{instance['flavor'][x]}}
+{% endfor %}
+</body>
+</html>

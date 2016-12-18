@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="">Instances</a></li>
+    <li><a href="">Create</a></li>
+</ul>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Instance Name</th>
+            <th>Image Name</th>
+            <th>IP Address</th>
+            <th>Size</th>
+            <th>Key Pair</th>
+            <th>Status</th>
+            <th>Availability Zone</th>
+            <th>Task</th>
+            <th>Power State</th>
+            <th>Time since created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    {% for instance in instances %}
+        <tr>
+            <td><a href="{{url_for('instance_details', instance_id=instance.id)}}">{{instance.name}}</a></td>
+            <td>{{instance.image}}</td>
+            <td>
+                <ul>
+                {% for network in instance.networks %}
+                    {% for addr in instance.networks[network] %}
+                        <li>{{addr}}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>{{instance.status}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{instance.created}}</td>
+            <td>
+                <ul>
+                    <li>Delete</li>
+                </ul>
+            </td>
+        </tr>
+        <!-- {{instance.status}}, {{instance.accessIPv4}}, {{instance.power_state}}, {{instance.created}}</tr> -->
+    {% endfor %}
+</table>
+
+</ul>
+</body>
+</html>
