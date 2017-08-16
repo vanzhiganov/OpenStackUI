@@ -1,0 +1,6 @@
+
+USER = ''
+PASSWORD = ''
+TENANT = ''
+AUTH_URL = 'https://openstack.net:5000/v2.0'
+VERSION = 2
